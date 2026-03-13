@@ -55,7 +55,7 @@ jobs:
       - name: Build, Tag, and Push Docker Image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: assessment-fsl
+          ECR_REPOSITORY: fsl-challenge
           IMAGE_TAG: latest
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest ./codebase/rdicidr-0.1.0

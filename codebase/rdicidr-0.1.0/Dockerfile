@@ -1,21 +1,21 @@
-FROM node:15 as builder
+FROM node:15.14.0-alpine AS builder
 
-WORKDIR
+WORKDIR /app
 
-COPY
+COPY package*.json package-lock.json ./
 
-RUN 
+RUN npm install --engine-strict=false --legacy-per-deps
 
-COPY
+COPY . .
 
-RUN 
+RUN npm run build
 
-FROM
+FROM node:15.14.0-alpine
 
-WORKDIR
+WORKDIR /app
 
-COPY
+RUN npm install -g serve
 
-RUN 
+EXPOSE 8080
 
-ENTRYPOINT 
+ENTRYPOINT ["serve", "-s", "build", "-l", "8080"]

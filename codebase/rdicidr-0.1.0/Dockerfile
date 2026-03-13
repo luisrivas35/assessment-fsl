@@ -8,7 +8,7 @@ RUN npm install --engine-strict=false --legacy-per-deps
 
 COPY . .
 
-RUN nmp run build
+RUN npm run build
 
 FROM node:15.14.0-alpine
 

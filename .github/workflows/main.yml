@@ -58,6 +58,7 @@ jobs:
           ECR_REPOSITORY: assessment-fsl
           IMAGE_TAG: latest
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG      
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest ./codebase/rdicidr-0.1.0
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG 
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest     
         
